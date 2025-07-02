@@ -12,7 +12,7 @@ const Footer = () => {
             <h3 className="text-2xl font-bold">EliteStore</h3>
             <p className="text-gray-300">
               Your premier destination for quality products and exceptional service. 
-              Discover the difference with EliteStore.
+              Discover the difference with EliteStore India.
             </p>
             <div className="flex space-x-4">
               <Button variant="ghost" size="icon" className="text-gray-300 hover:text-white">
@@ -57,15 +57,15 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-gray-300" />
-                <span className="text-gray-300">support@elitestore.com</span>
+                <span className="text-gray-300">support@elitestore.in</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-gray-300" />
-                <span className="text-gray-300">+1 (555) 123-4567</span>
+                <span className="text-gray-300">+91 98765 43210</span>
               </div>
               <div className="flex items-center space-x-3">
                 <MapPin className="h-5 w-5 text-gray-300" />
-                <span className="text-gray-300">123 Commerce St, City, State 12345</span>
+                <span className="text-gray-300">123 MG Road, Bengaluru, Karnataka 560001</span>
               </div>
             </div>
           </div>
@@ -74,7 +74,7 @@ const Footer = () => {
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-300 text-sm">
-              © 2024 EliteStore. All rights reserved.
+              © 2024 EliteStore India. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a href="#" className="text-gray-300 hover:text-white text-sm transition-colors">

@@ -29,6 +29,15 @@ const CartSidebar = ({
   const total = items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
   const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
 
+  const formatPrice = (price: number) => {
+    return new Intl.NumberFormat('en-IN', {
+      style: 'currency',
+      currency: 'INR',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(price);
+  };
+
   return (
     <Sheet open={isOpen} onOpenChange={onClose}>
       <SheetContent side="right" className="w-full sm:max-w-lg">
@@ -64,7 +73,7 @@ const CartSidebar = ({
                       />
                       <div className="flex-1">
                         <h3 className="font-semibold text-gray-900 mb-1">{item.name}</h3>
-                        <p className="text-lg font-bold text-primary">${item.price}</p>
+                        <p className="text-lg font-bold text-primary">{formatPrice(item.price)}</p>
                         
                         <div className="flex items-center justify-between mt-2">
                           <div className="flex items-center gap-2">
@@ -108,7 +117,7 @@ const CartSidebar = ({
                 <div className="space-y-2">
                   <div className="flex justify-between text-base">
                     <span>Subtotal:</span>
-                    <span>${total.toFixed(2)}</span>
+                    <span>{formatPrice(total)}</span>
                   </div>
                   <div className="flex justify-between text-base">
                     <span>Shipping:</span>
@@ -116,7 +125,7 @@ const CartSidebar = ({
                   </div>
                   <div className="flex justify-between text-xl font-bold pt-2 border-t">
                     <span>Total:</span>
-                    <span>${total.toFixed(2)}</span>
+                    <span>{formatPrice(total)}</span>
                   </div>
                 </div>
 

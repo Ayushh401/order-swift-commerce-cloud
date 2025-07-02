@@ -1,9 +1,8 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Heart, ShoppingCart, Star } from 'lucide-react';
+import { Heart, ShoppingCart, Star, IndianRupee } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
 
 interface Product {
@@ -27,8 +26,8 @@ const mockProducts: Product[] = [
   {
     id: '1',
     name: 'Premium Wireless Headphones',
-    price: 299,
-    originalPrice: 399,
+    price: 24999,
+    originalPrice: 32999,
     image: '/placeholder.svg',
     category: 'Electronics',
     rating: 4.8,
@@ -38,7 +37,7 @@ const mockProducts: Product[] = [
   {
     id: '2',
     name: 'Designer Leather Jacket',
-    price: 599,
+    price: 49999,
     image: '/placeholder.svg',
     category: 'Fashion',
     rating: 4.9,
@@ -48,8 +47,8 @@ const mockProducts: Product[] = [
   {
     id: '3',
     name: 'Smart Fitness Watch',
-    price: 249,
-    originalPrice: 299,
+    price: 20999,
+    originalPrice: 24999,
     image: '/placeholder.svg',
     category: 'Wearables',
     rating: 4.7,
@@ -59,7 +58,7 @@ const mockProducts: Product[] = [
   {
     id: '4',
     name: 'Minimalist Backpack',
-    price: 89,
+    price: 7499,
     image: '/placeholder.svg',
     category: 'Accessories',
     rating: 4.6,
@@ -68,7 +67,7 @@ const mockProducts: Product[] = [
   {
     id: '5',
     name: 'Organic Coffee Beans',
-    price: 24,
+    price: 1999,
     image: '/placeholder.svg',
     category: 'Food',
     rating: 4.9,
@@ -78,8 +77,8 @@ const mockProducts: Product[] = [
   {
     id: '6',
     name: 'Wireless Charging Pad',
-    price: 49,
-    originalPrice: 69,
+    price: 4099,
+    originalPrice: 5799,
     image: '/placeholder.svg',
     category: 'Electronics',
     rating: 4.5,
@@ -89,7 +88,7 @@ const mockProducts: Product[] = [
   {
     id: '7',
     name: 'Artisan Ceramic Mug',
-    price: 32,
+    price: 2699,
     image: '/placeholder.svg',
     category: 'Home',
     rating: 4.8,
@@ -98,7 +97,7 @@ const mockProducts: Product[] = [
   {
     id: '8',
     name: 'Professional Camera Lens',
-    price: 899,
+    price: 74999,
     image: '/placeholder.svg',
     category: 'Photography',
     rating: 4.9,
@@ -135,6 +134,15 @@ const ProductGrid = ({ onAddToCart }: ProductGridProps) => {
       title: "Added to cart!",
       description: `${product.name} has been added to your cart.`,
     });
+  };
+
+  const formatPrice = (price: number) => {
+    return new Intl.NumberFormat('en-IN', {
+      style: 'currency',
+      currency: 'INR',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(price);
   };
 
   return (
@@ -222,12 +230,12 @@ const ProductGrid = ({ onAddToCart }: ProductGridProps) => {
                   </div>
 
                   <div className="flex items-center gap-2 mb-3">
-                    <span className="text-xl font-bold text-gray-900">
-                      ${product.price}
+                    <span className="text-xl font-bold text-gray-900 flex items-center">
+                      {formatPrice(product.price)}
                     </span>
                     {product.originalPrice && (
-                      <span className="text-sm text-gray-500 line-through">
-                        ${product.originalPrice}
+                      <span className="text-sm text-gray-500 line-through flex items-center">
+                        {formatPrice(product.originalPrice)}
                       </span>
                     )}
                   </div>
